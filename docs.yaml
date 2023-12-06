@@ -1,0 +1,11 @@
+docs:
+  dochub.welcome:
+    location: Docs/Getting started
+    description: Getting started
+    type: markdown
+    source: ./README.md
+  dochub.docs.homework-1:
+    location: Docs/Homework/1
+    description: Homework 1
+    type: markdown
+    source: ./HOMEWORK-1.md
