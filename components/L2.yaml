@@ -1,0 +1,59 @@
+# Описываем L2 Container в нотации C4 Model
+# Раскрываяем SystemAA: Internet Banking System
+c4model:
+  # ******************************************************
+  #                      Системы
+  # ******************************************************
+  system.spa:
+    entity: Container
+    title: Single-Page App
+    # description: Provides all the Internet banking functionality to customers via their web browser.
+    # tech-stack:
+    #   - JavaScript
+    #   - Angular
+    links:
+      - id: user
+        title: uses
+        direction: <->
+        # tech-stack:
+        #   - HTTPS
+      - id: system.backend_api
+        title: uses
+        direction: ->
+        # tech-stack:
+        #   - async
+        #   - HTTPS
+        #   - JSON
+  system.backend_api:
+    entity: Container
+    title: API Application
+    # description: Provides Internet banking functionality via API
+    # tech-stack:
+    #   - Node.js
+    #   - Docker Container
+    links:
+      - id: system.storage
+        title: uses
+        direction: ->
+      - id: system.cache
+        title: uses
+        direction: ->
+  system.storage:
+    entity: ContainerDb
+    title: Storage
+    # description: Stores user registration information, hashed auth credentials, access logs, etc.
+    # tech-stack:
+    #   - SQL Database
+    # links:
+      # - id: SystemAA.backend_api
+      #   title: Reads from and writes to
+      #   direction: <-
+      #   tech-stack:
+      #     - sync
+      #     - JDBC
+  system.cache:
+    entity: ContainerDb
+    title: Cache
+    # description: Stores user registration information, hashed auth credentials, access logs, etc.
+    # tech-stack:
+    #   - KV Database

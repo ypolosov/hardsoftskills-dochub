@@ -1,0 +1,34 @@
+# Описываем L1 Context в нотации C4 Model
+c4model:
+  # ******************************************************
+  #                      Клиенты
+  # ******************************************************
+  user:
+    title: User
+    entity: Person
+    # boundary: Users
+    links:
+      - id: system
+        direction: ->
+        title: uses
+
+
+  # ******************************************************
+  #                      Системы
+  # ******************************************************
+  system:
+    title: Url shortening system
+    description: Allows users to shorten url links.
+    entity: System
+    # boundary: UrlShorteningSystem
+    links:
+      - id: dns
+        direction: ->
+        title: uses
+
+
+  dns:
+    title: DNS system
+    # description: Allows users to shorten url links.
+    entity: System_Ext
+    # boundary: ExternalSystems

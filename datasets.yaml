@@ -1,0 +1,44 @@
+datasets:                       # Источники данных
+  overview_scenarios:
+    source: ./overview-scenarios.yaml
+  overview:
+    source: >
+      (
+                    /* Определяем фильтр для компонентов архитектуры */
+                    $matcher := /[a-zA-Z_]*/i;
+
+                    $nodes := $merge(components.$spread().(
+                        /* Получаем идентификатор компонента */
+                        $id := $keys()[0];
+                        /* Если идентификатор компонента удовлетворяет фильтру, создаем ноду */
+                        $matcher($id) ? {
+                            /* Отсекаем домен верхнего уровня для исключения отображения компонентов в иерархии */
+                            $id: {
+                                "title": *.title,
+                                /* Преобразуем entity компонентов в понятные диаграмме символы actor -> user */
+                                "symbol": *.entity = "actor" ? "user" : *.entity,
+                                /* Получаем список связей */
+                                "links": *.links[id].{
+
+                                       "from": $id,
+                                       "to": id,
+                                       "style": direction,
+                                       "title": title
+                                   }
+                            }
+                        }
+
+                      ));
+
+                    /* Генерируем структуру для диаграммы */
+                    {
+                      /* Формируем ноды из компонентов */
+                      "config": {
+                                  "distance": 130,
+                                  "trackWidth": 24,
+                                  "lineWidthLimit": 2
+                    },
+                      "nodes": $nodes,
+                      "links": $nodes.*.links
+                    }
+                  )

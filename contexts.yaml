@@ -1,0 +1,36 @@
+contexts:
+  overview:
+    title: Overview context
+    location: Contexts/Overview
+    description: Overview context
+    # extra-links: false
+    components:
+      - clients.*
+      - system
+  
+  clients:
+    title: Clients context
+    location: Contexts/Clients
+    description: Clients context
+    # extra-links: false
+    components:
+      - clients
+      - clients.*
+
+  system:
+    title: System context
+    location: Contexts/System
+    description: System context
+    # extra-links: false
+    components:
+      - system
+      - system.*
+
+  external:
+    title: External context
+    location: Contexts/External
+    description: External context
+    # extra-links: false
+    components:
+      - external
+      - external.*

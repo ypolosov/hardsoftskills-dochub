@@ -1,0 +1,13 @@
+animation:
+  actions:
+    clean:
+      - action: clean
+        target: ".*"
+
+  scenarios:
+    demo1:
+      title: 0. Getting started
+      steps:
+        - action: hello
+          delay: 2000
+          voice: true

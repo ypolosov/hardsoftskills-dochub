@@ -1,0 +1,41 @@
+components:
+  clients:
+    title: Clients
+    # entity: component
+  clients.user:
+    title: User
+    entity: component
+    links:
+      - id: system
+        direction: -->
+        title: use
+
+  system:
+    title: System
+    # entity: component
+  system.url_shortener:
+    title: URL Shortener
+    entity: component
+    links:
+      - id: system.storage
+        direction: -->
+        title: use
+      - id: system.cache
+        direction: -->
+        title: use
+      - id: external.dns
+        direction: -->
+        title: use
+  system.storage:
+    title: Storage
+    entity: component
+  system.cache:
+    title: Cache
+    entity: component
+
+  external:
+    title: External
+    # entity: component
+  external.dns:
+    title: DNS
+    entity: component

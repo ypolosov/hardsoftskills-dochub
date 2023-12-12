@@ -1,0 +1,26 @@
+# Описываем L3 Components в нотации C4 Model
+# Раскрываяем SystemAA.backend_api: API Application
+c4model:
+  system.backend_api.url_shortener:
+    title: Url Shortener Controller
+    # description: Allows users to sign in to the internet banking system
+    entity: Component
+    tech-stack:
+      - MVC Rest Controller
+      - Nest.js
+    # links:
+    #   - id: SystemAA.backend_api.security
+    #     title: Uses
+    #     direction: --
+    #   - id: SystemAA.spa
+    #     title: Uses
+    #     direction: <-
+    #     tech-stack:
+    #       - JSON
+    #       - HTTPS
+    #   - id: SystemAA.mobile_app
+    #     title: Uses
+    #     direction: --
+    #     tech-stack:
+    #       - JSON
+    #       - HTTPS
